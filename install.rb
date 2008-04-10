@@ -10,4 +10,4 @@ def install(file)
   end
 end
 
-install File.join( 'lib', 'migrator-rails.jar' )
+install File.join( 'lib','java','migrator-rails.jar' )
