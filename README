@@ -1,0 +1,26 @@
+MigrateWar
+==========
+
+Simple Rails plugin to enable migrations to be run just after the rails application loads by using the
+ServletContext in a JRuby/Goldspike environment.
+
+Consists of a ServletContextListener which executes a migration , and some monkey patching of RAILS_DEFAULT_LOGGER to make use of it.
+
+SVN repository is at
+TODO
+
+Installing the ContextListener
+------------------------------
+add the following to your web.xml (for goldspike you can add this to generators/templates/web.xml.erb)
+  
+
+
+  <listener>
+    <listener-class>org.jruby.webapp.MigratorContextListener</listener-class>
+  </listener>
+        
+
+
+
+
+Copyright (c) 2008 Mike Hagedorn, http://www.silverchairsolutions.com, released under the MIT license
