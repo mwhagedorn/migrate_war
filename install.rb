@@ -2,7 +2,9 @@ require 'fileutils'
 
 def install(file)
   puts "Installing: #{file}"
-  target = File.join(File.dirname(__FILE__), '..', '..', '..', file)
+  base = File.basename(file)
+  target = File.join(File.dirname(__FILE__), '..', '..', '..','lib','java',base)
+
   if File.exists?(target)
     puts "target #{target} already exists, skipping"
   else
