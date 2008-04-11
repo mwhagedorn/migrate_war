@@ -26,14 +26,17 @@ public class MigratorContextListener implements ServletContextListener {
 
 					/* This script runs the migration when the context loads */
 
-					String script = 
+				/*	String script = 
 						"require 'java'\n" +
 						"require 'rubygems'\n"+
 						"gem 'activerecord'\n"+
-						"ActiveRecord::Migrator.migrate('db/migrate/',nil)\n";
+						"ActiveRecord::Migrator.migrate('db/migrate/',nil)\n";*/
+			
+			
 							
-					runtime.evalScriptlet(script);
+					//runtime.evalScriptlet(script);
 	   
+			   System.exec("jruby -S rake db:migrate");
 		}
 
 		public void contextDestroyed(ServletContextEvent event) {
