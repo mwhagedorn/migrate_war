@@ -17,8 +17,9 @@ task :compile do
   src_dir = 'src/java'
   dest_dir = CLASSES_DIR
   
- Dir::mkdir(dest_dir) unless File::exist?(dest_dir)
-
+  
+ #Dir::mkdir(dest_dir) unless File::exist?(dest_dir)
+`mkdir -pv tmp/classes` unless File::exist?(dest_dir)
 
   javac(src_dir, dest_dir)
 end
@@ -35,12 +36,12 @@ end
 def javac(src_dir, dest_dir)
   #java_files = get_out_of_date_files(src_dir, dest_dir)
   java_files = FileList["#{src_dir}/**/*.java"]
-  print "{build_class_path}"
+
   unless java_files.empty?
     print "compiling #{java_files.size} java file(s)..."
     #print build_class_path
     args = [ '-cp', build_class_path, '-d', dest_dir, *java_files ]
-
+print "#{args}"
     buf = java.io.StringWriter.new
     if com.sun.tools.javac.Main.compile(to_java_array(java.lang.String, args), 
                                         java.io.PrintWriter.new(buf)) != 0
