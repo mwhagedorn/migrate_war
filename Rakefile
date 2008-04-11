@@ -21,6 +21,7 @@ task :compile do
  #Dir::mkdir(dest_dir) unless File::exist?(dest_dir)
 `mkdir -pv tmp/classes` unless File::exist?(dest_dir)
 
+
   javac(src_dir, dest_dir)
 end
 
