@@ -16,4 +16,4 @@ dest_dir = 'lib/java'
    
 Dir::mkdir(dest_dir) unless File::exist?(dest_dir)
 
-install File.join( 'lib','migrator-rails.jar' )
+install File.join( 'lib','migrator-rails-0.9.jar' )
