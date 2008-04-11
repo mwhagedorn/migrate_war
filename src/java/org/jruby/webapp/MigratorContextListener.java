@@ -35,8 +35,12 @@ public class MigratorContextListener implements ServletContextListener {
 			
 							
 					//runtime.evalScriptlet(script);
-	   
-			   System.exec("jruby -S rake db:migrate");
+	   		  try{
+			   Runtime.getRuntime().exec("jruby -S rake db:migrate");
+			}catch(Exception e){
+				e.printStackTrace();
+				System.out.println("Can't execute script");
+			}
 		}
 
 		public void contextDestroyed(ServletContextEvent event) {
