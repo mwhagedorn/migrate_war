@@ -10,14 +10,15 @@ task :default => :build_jar
 CLASSES_DIR = 'tmp/classes'
 
 task :build_jar => [ :compile ] do
-  jar CLASSES_DIR, 'lib/migrator-rails.jar'
+  jar CLASSES_DIR, 'lib/migrator-rails-0.9.jar'
 end
 
 task :compile do
   src_dir = 'src/java'
   dest_dir = CLASSES_DIR
-    
-  Dir::mkdir(dest_dir) unless File::exist?(dest_dir)
+  
+ Dir::mkdir(dest_dir) unless File::exist?(dest_dir)
+
 
   javac(src_dir, dest_dir)
 end
