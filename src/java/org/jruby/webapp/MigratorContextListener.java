@@ -1,4 +1,4 @@
-package org.jruby.webapp.MigratorContextListener;
+package org.jruby.webapp;
 
 import javax.servlet.ServletContextListener;
 import javax.servlet.ServletContextEvent;
