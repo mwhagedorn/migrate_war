@@ -13,13 +13,25 @@ Author:   Mike Hagedorn  (mike@silverchairsolutions.com)
 
 Installing the ContextListener
 ------------------------------
-add the following to your web.xml (for goldspike you can add this to generators/templates/web.xml.erb)
+add the following to your web.xml.  This will pull your code into the war file and make it execute on load
   
 
 
   <listener>
     <listener-class>org.jruby.webapp.MigratorContextListener</listener-class>
   </listener>
+
+
+	<context-param>
+		<param-name>command-file</param-name>
+		<param-value>migrator.rb</param-value>
+		<description>Run this file to execute an initial migration (for deployment to new platforms)</description>
+	</context-param>
+
+
+Note that this will apply the schema to the production database, blowing away the previous contents, so back up your data before redeploying.  If you what to disable the schema.rb stuff, you can either a) remove the listener definition from the web.xml or b) comment out the load comment in the migrator.rb file.
+
+Alternatively, you could expand the migrator.rb logic and import data from fixtures or something
         
 
 
