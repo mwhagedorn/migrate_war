@@ -1,0 +1,6 @@
+load('db/schema.rb')
+
+
+
+
+
